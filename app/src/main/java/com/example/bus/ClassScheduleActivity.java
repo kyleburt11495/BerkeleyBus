@@ -193,32 +193,32 @@ public class ClassScheduleActivity extends AppCompatActivity  {
                     null,
                     null);
 
-            Cursor cursorTuesday = db.query(DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME,
-                    projectionMonday,
+            Cursor cursorTuesday = db.query(DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME,
+                    projectionTuesday,
                     null,
                     null,
                     null,
                     null,
                     null);
 
-            Cursor cursorWednesday = db.query(DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME,
-                    projectionMonday,
+            Cursor cursorWednesday = db.query(DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME,
+                    projectionWednesday,
                     null,
                     null,
                     null,
                     null,
                     null);
 
-            Cursor cursorThursday = db.query(DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME,
-                    projectionMonday,
+            Cursor cursorThursday = db.query(DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME,
+                    projectionThursday,
                     null,
                     null,
                     null,
                     null,
                     null);
 
-            Cursor cursorFriday = db.query(DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME,
-                    projectionMonday,
+            Cursor cursorFriday = db.query(DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME,
+                    projectionFriday,
                     null,
                     null,
                     null,
@@ -236,32 +236,32 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
             while(cursorTuesday.moveToNext())
             {
-                String current = cursorMonday.getString
-                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TUESDAY));
+                String current = cursorTuesday.getString
+                        (cursorTuesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TUESDAY));
 
                 tuesdayPriority.add(current);
             }
 
             while(cursorWednesday.moveToNext())
             {
-                String current = cursorMonday.getString
-                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY));
+                String current = cursorWednesday.getString
+                        (cursorWednesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY));
 
                 wednesdayPriority.add(current);
             }
 
             while(cursorThursday.moveToNext())
             {
-                String current = cursorMonday.getString
-                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_THURSDAY));
+                String current = cursorThursday.getString
+                        (cursorThursday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_THURSDAY));
 
                 thursdayPriority.add(current);
             }
 
             while(cursorFriday.moveToNext())
             {
-                String current = cursorMonday.getString
-                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_FRIDAY));
+                String current = cursorFriday.getString
+                        (cursorFriday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_FRIDAY));
 
                 fridayPriority.add(current);
             }
