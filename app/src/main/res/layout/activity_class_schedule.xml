@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bus.ClassScheduleActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableRow>
+
+                    <TextView
+                        android:text="Mon"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"/>
+                    <TextView
+                        android:text="Tue"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:padding="3dp" />
+                    <TextView
+                        android:text="Wed"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:padding="3dp"/>
+                    <TextView
+                        android:text="Thu"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:padding="3dp"/>
+                    <TextView
+                        android:text="Fri"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:padding="3dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/mondayFirstClass"
+                        android:background="@color/lightBlue"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"
+                        />
+                    <Button
+                        android:id="@+id/tuesdayFirstClass"
+                        android:background="@color/lightBlue"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/wednesdayFirstClass"
+                        android:background="@color/lightBlue"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/thursdayFirstClass"
+                        android:background="@color/lightBlue"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/fridayFirstClass"
+                        android:background="@color/lightBlue"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/mondaySecondClass"
+                        android:background="@color/creamsicle"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"
+                        />
+                    <Button
+                        android:id="@+id/tuesdaySecondClass"
+                        android:background="@color/creamsicle"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/wednesdaySecondClass"
+                        android:background="@color/creamsicle"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/thursdaySecondClass"
+                        android:background="@color/creamsicle"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/fridaySecondClass"
+                        android:background="@color/creamsicle"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/mondayThirdClass"
+                        android:background="@color/violet"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"
+                        />
+                    <Button
+                        android:id="@+id/tuesdayThirdClass"
+                        android:background="@color/violet"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/wednesdayThirdClass"
+                        android:background="@color/violet"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/thursdayThirdClass"
+                        android:background="@color/violet"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/fridayThirdClass"
+                        android:background="@color/violet"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/mondayFourthClass"
+                        android:background="@color/emerald"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"
+                        />
+                    <Button
+                        android:id="@+id/tuesdayFourthClass"
+                        android:background="@color/emerald"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/wednesdayFourthClass"
+                        android:background="@color/emerald"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/thursdayFourthClass"
+                        android:background="@color/emerald"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                    <Button
+                        android:id="@+id/fridayFourthClass"
+                        android:background="@color/emerald"
+                        android:layout_gravity="center"
+                        android:padding="3dp"
+                        android:layout_margin="4dp"
+                        android:layout_width="60dp"
+                        android:height="100dp"/>
+                </TableRow>
+
+
+
+
+
+
+
+            </TableLayout>
+        </ScrollView>
+
+
+
+
+</LinearLayout>

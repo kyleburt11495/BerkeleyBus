@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">Bus</string>
+
+
+    <string-array name="ucbRouteArray">
+        <item>Perimeter</item>
+        <item>Hill</item>
+        <item>Central Campus</item>
+        <item>RFS</item>
+        <item>Night Safety North</item>
+        <item>Night Safety South</item>
+        <item>Shared Services</item>
+    </string-array>
+
+    <string-array name="ucbDirectionUphillDownhill">
+        <item>Uphill</item>
+        <item>Downhill</item>
+    </string-array>
+
+    <string-array name="ucbDirectionLoop">
+        <item>Loop</item>
+    </string-array>
+
+    <string-array name="ucbDownhillStops">
+        <item>Space Sciences Lab/MSRI</item>
+        <item>Lawrence Hall of Science</item>
+        <item>UC Botanical Garden</item>
+        <item>Strawberry Canyon</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+    </string-array>
+
+    <string-array name="ucbUphillStops">
+        <item>Downtown Berkeley</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+        <item>Strawberry Canyon</item>
+        <item>UC Botanical Garden</item>
+        <item>Lawrence Hall of Science</item>
+        <item>Space Sciences Lab/MSRI</item>
+    </string-array>
+
+    <string-array name="ucbPerimeterStops">
+        <item>Downtown Berkeley: Shattuck at Addison</item>
+        <item>Oxford at University</item>
+        <item>Tolman Hall: Hearst at Arch</item>
+        <item>North Gate: Hearst at Euclid</item>
+        <item>Cory Hall: Hearst at LeRoy</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+        <item>Gayley at Stadium Rimway</item>
+        <item>Haas School of Business: Piedmont Avenue</item>
+        <item>International House: Piedmont at Bancroft</item>
+        <item>Piedmont at Channing</item>
+        <item>College at Haste</item>
+        <item>Kroeber Hall: Bancroft at College</item>
+        <item>Hearst Memorial Gym: Bancroft at Browdich</item>
+        <item>Sproul Hall: Bancroft at Telegraph</item>
+        <item>Recreational Sport Facility</item>
+        <item>Banway Building: Bancfroft at Shattuck</item>
+        <item>Shattuck at Kittredge</item>
+    </string-array>
+
+    <string-array name="ucbCentralCampusStops">
+        <item>Downtown Berkeley: Shattock at Addison</item>
+        <item>Oxford at University</item>
+        <item>Tolman Hall</item>
+        <item>Hearst at Arch</item>
+        <item>North Gate: Hearst at Euclid</item>
+        <item>Cory Hall: Hearst at LeRoy</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+        <item>Moffitt Library: University Drive</item>
+        <item>West Circle: University Drive</item>
+        <item>Li Ka Shing: West Crescent</item>
+    </string-array>
+
+    <string-array name="ucbRFSStops">
+        <item>El Cerrito Plaza BART</item>
+        <item>Richmond Field Station</item>
+        <item>Regatta Facility</item>
+        <item>Buchanan at Jackson</item>
+        <item>Hopkins at MLK Jr.</item>
+        <item>Downtown Berkeley: Shattock at Addison</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+        <item>Oxford at University</item>
+        <item>Hopkins at MLK Jr.</item>
+        <item>Buchanan at Jackson</item>
+        <item>Richmond Field Station</item>
+        <item>Regatta Facility (Arrival)</item>
+    </string-array>
+
+    <string-array name="ucbNightSafetyNorthStops">
+        <item>Moffitt Library: Memorial Glade</item>
+        <item>Life Science Addition: West Circle</item>
+        <item>Li Ka Shing: West Crescent</item>
+        <item>Downtown Berkeley: Shattuck at Addison</item>
+        <item>University at Shattuck</item>
+        <item>Tolman Hall: Hearst at Arch</item>
+        <item>North Gate: Hearst at Euclid</item>
+        <item>Cory Hall: Hearst at LeRoy</item>
+        <item>Foothill Student Housing</item>
+        <item>Highland Place at Ridge Road</item>
+        <item>East Gate: Gayley at University Drive</item>
+        <item>Bowles Hall: Gayley</item>
+        <item>Haas School of Business</item>
+        <item>International House</item>
+        <item>Kroeber Hall: Bancroft at College</item>
+        <item>Hearst Memorial Gym: Bancroft at Bowditch</item>
+        <item>Sproul Hall: Bancroft at Telegraph</item>
+        <item>Recreational Sport Facility</item>
+        <item>Banway Building</item>
+        <item>Bancroft at Kittredge</item>
+        <item>Downtown Berkeley BART: Shattuck at Addison</item>
+        <item>Li Ka Shing: West Crescent</item>
+        <item>Life Science Addition: West Circle</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+    </string-array>
+
+    <string-array name="ucbNightSafetySouthStops">
+        <item>Moffit Library: Memorial Glade</item>
+        <item>Life Science Addition: West Circle</item>
+        <item>Li Ka Shing: West Crescent</item>
+        <item>Downtown Berkeley: Shattuck at Addison</item>
+        <item>Shattuck at Alston</item>
+        <item>Shattuck at Kittredge</item>
+        <item>Shattuck at Durant</item>
+        <item>Dwight at Fulton</item>
+        <item>Ellsworth Structure: Channing side</item>
+        <item>Residence Hall Unit 3 Channing at Telegraph</item>
+        <item>Channing at Bowditch</item>
+        <item>Residence Hall Unit 1 Channing at College</item>
+        <item>College at Haste</item>
+        <item>Warring at Piedmont</item>
+        <item>Clark Kerr Campus: Warring at Horshoe</item>
+        <item>Warring at Channing</item>
+        <item>Warring at Bancroft</item>
+        <item>International House: Piedmont at Bancroft</item>
+        <item>Haas School of Business</item>
+        <item>Gayley at Stadium Rimway</item>
+        <item>Greek Theater: Gayley at University Drive</item>
+        <item>Foothill Student Housing: Hearst side</item>
+        <item>Highland PLace at Ridge Road</item>
+        <item>Evans Hall: Hearst Mining Circle</item>
+    </string-array>
+
+    <string-array name="ucbSharedServicesStops">
+        <item>North Berkeley BART</item>
+        <item>CSS</item>
+    </string-array>
+    <string name="title_activity_schedule">ScheduleActivity</string>
+    <string name="title_activity_fill_class">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string-array name="daysOfWeek">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <!-- Shared Preferences file identifiers -->
+    <string name="preference_file_key_monday">Bus.monday</string>
+    <string name="preference_file_key_tuesday">Bus.tuesday</string>
+    <string name="preference_file_key_wednesday">Bus.wednesday</string>
+    <string name="preference_file_key_thursday">Bus.thursday</string>
+    <string name="preference_file_key_friday">Bus.friday</string>
+
+
+
+</resources>

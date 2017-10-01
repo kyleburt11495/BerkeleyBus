@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bus.MainActivity"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <Spinner
+        android:id="@+id/routeSpinner"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:spinnerMode="dropdown"
+        android:layout_margin="16dp"
+        android:textColor="@color/black">
+    </Spinner>
+
+    <Spinner
+        android:id="@+id/directionSpinner"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:spinnerMode="dropdown"
+        android:layout_margin="16dp"
+        android:textColor="@color/black">
+    </Spinner>
+
+    <Spinner
+        android:id="@+id/stopSpinner"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:spinnerMode="dropdown"
+        android:layout_margin="16dp"
+        android:textColor="@color/black">
+    </Spinner>
+
+
+
+    <TextView
+            android:id="@+id/arrivalTimeView"
+            android:text="first"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border"
+            android:layout_margin="16dp"
+             />
+        <TextView
+            android:id="@+id/secondArrivalTimeView"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="second"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            android:background="@drawable/border"
+            android:layout_margin="16dp"
+            />
+         <TextView
+            android:id="@+id/thirdArrivalTimeView"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="third"
+             android:textColor="@color/black"
+            android:textSize="50dp"
+            android:background="@drawable/border"
+             android:layout_margin="16dp"
+            />
+
+</LinearLayout>
