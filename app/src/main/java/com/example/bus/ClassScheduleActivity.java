@@ -150,12 +150,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
         new getDatabaseTask().execute();
 
-        //display times
-        displayInLayout(mondayPriority);
-        displayInLayout(tuesdayPriority);
-        displayInLayout(wednesdayPriority);
-        displayInLayout(thursdayPriority);
-        displayInLayout(fridayPriority);
+
 
 
     }
@@ -272,6 +267,13 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             cursorWednesday.close();
             cursorThursday.close();
             cursorFriday.close();
+
+            //display times
+            displayInLayout(mondayPriority);
+            displayInLayout(tuesdayPriority);
+            displayInLayout(wednesdayPriority);
+            displayInLayout(thursdayPriority);
+            displayInLayout(fridayPriority);
 
         }
     }
