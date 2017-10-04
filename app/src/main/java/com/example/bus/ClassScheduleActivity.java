@@ -21,6 +21,7 @@ import android.widget.TimePicker;
 import com.example.bus.data.DatabaseContract;
 import com.example.bus.data.DatabaseHelper;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
@@ -479,7 +480,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         return hour + ":" + minute + "\n" + amPm;
     }
 
-    public String unConvertTime(String toUnconvert)
+    public String unconvertTime(String toUnconvert)
     {
         //split string on newLine char to determine whether time is AM or PM
         String[] newlineSplit = toUnconvert.split("\n");
@@ -549,6 +550,26 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
 
 
+    }
+
+    public class timeButtonListener implements View.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v)
+        {
+            //get time stored in the button
+            Button button = (Button) v;
+            String buttonText = button.getText().toString();
+
+            //convert time back into the format it is stored in database
+            String databaseString = unconvertTime(buttonText);
+
+            if(Arrays.asList(mondayColumn).contains(button))
+            {
+
+            }
+        }
     }
 
     protected void onDestroy() {
