@@ -97,7 +97,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         tuesdayFourthClass = (Button) findViewById(R.id.tuesdayFourthClass);
         wednesdayFirstClass = (Button) findViewById(R.id.wednesdayFirstClass);
         wednesdaySecondClass = (Button) findViewById(R.id.wednesdaySecondClass);
-        wednesdayThirdClass = (Button) findViewById(R.id.wednesdayFourthClass);
+        wednesdayThirdClass = (Button) findViewById(R.id.wednesdayThirdClass);
         wednesdayFourthClass = (Button) findViewById(R.id.wednesdayFourthClass);
         thursdayFirstClass = (Button) findViewById(R.id.thursdayFirstClass);
         thursdaySecondClass = (Button) findViewById(R.id.thursdaySecondClass);
@@ -215,8 +215,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             Cursor cursorFriday = db.query(DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME,
                     projectionFriday,
                     null,
-                    null,
-                    null,
+                    null, null,
                     null,
                     null);
 
@@ -478,6 +477,37 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
         //concat hour and minute together to create final time string
         return hour + ":" + minute + "\n" + amPm;
+    }
+
+    public String unConvertTime(String toUnconvert)
+    {
+        //split string on newLine char to determine whether time is AM or PM
+        String[] newlineSplit = toUnconvert.split("\n");
+
+        //split string to left of newline to get hour and minute
+        String[] colonSplit = newlineSplit[0].split(":");
+
+        //convert hour value into an int
+        int hourInt = Integer.valueOf(colonSplit[0]);
+
+        //check if first digit of minute is a 0, if so then remove 0
+        String minute = colonSplit[1];
+        if(minute.charAt(0) == '0')
+            minute = minute.substring(1);
+
+
+        // amPm will be initialized to 0 or 12 depending on if time is AM or PM and added to hour
+        int amPmInt = 0;
+        if(newlineSplit[1].equals("PM"))
+            amPmInt = 12;
+
+        //add amPmInt to hour to unconvert back to 24 hour time
+        String hourString = String.valueOf(hourInt+amPmInt);
+
+        //concatenate hour with : and mnute and
+        return hourString + ":" + minute;
+
+
     }
 
     public long addToDatabase(TreeSet<String> priorityQueue, String time)
