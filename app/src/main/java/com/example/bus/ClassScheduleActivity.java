@@ -88,6 +88,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         //keep reference to database
         db = dbHelper.getWritableDatabase();
 
+
         mondayFirstClass = (Button) findViewById(R.id.mondayFirstClass);
         mondaySecondClass = (Button) findViewById(R.id.mondaySecondClass);
         mondayThirdClass = (Button) findViewById(R.id.mondayThirdClass);
@@ -108,6 +109,8 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         fridaySecondClass = (Button) findViewById(R.id.fridaySecondClass);
         fridayThirdClass = (Button) findViewById(R.id.fridayThirdClass);
         fridayFourthClass = (Button) findViewById(R.id.fridayFourthClass);
+
+        mondayFirstClass.setOnClickListener(new timeButtonListener());
 
         mondayPriority = new TreeSet<>();
         tuesdayPriority = new TreeSet<>();
@@ -172,11 +175,11 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             //get values from database and populate the layout
 
             //define projection used to specify which columns will be used
-            String[] projectionMonday = {DatabaseContract.DatabaseEntry.COLUMN_MONDAY};
-            String[] projectionTuesday = {DatabaseContract.DatabaseEntry.COLUMN_TUESDAY};
-            String[] projectionWednesday = {DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY};
-            String[] projectionThursday = {DatabaseContract.DatabaseEntry.COLUMN_THURSDAY};
-            String[] projectionFriday = {DatabaseContract.DatabaseEntry.COLUMN_FRIDAY};
+            String[] projectionMonday = {DatabaseContract.DatabaseEntry.COLUMN_TIME};
+            String[] projectionTuesday = {DatabaseContract.DatabaseEntry.COLUMN_TIME};
+            String[] projectionWednesday = {DatabaseContract.DatabaseEntry.COLUMN_TIME};
+            String[] projectionThursday = {DatabaseContract.DatabaseEntry.COLUMN_TIME};
+            String[] projectionFriday = {DatabaseContract.DatabaseEntry.COLUMN_TIME};
 
 
 
@@ -224,7 +227,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             while(cursorMonday.moveToNext())
             {
                 String current = cursorMonday.getString
-                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_MONDAY));
+                        (cursorMonday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TIME));
 
                 mondayPriority.add(current);
             }
@@ -232,7 +235,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             while(cursorTuesday.moveToNext())
             {
                 String current = cursorTuesday.getString
-                        (cursorTuesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TUESDAY));
+                        (cursorTuesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TIME));
 
                 tuesdayPriority.add(current);
             }
@@ -240,7 +243,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             while(cursorWednesday.moveToNext())
             {
                 String current = cursorWednesday.getString
-                        (cursorWednesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY));
+                        (cursorWednesday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TIME));
 
                 wednesdayPriority.add(current);
             }
@@ -248,7 +251,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             while(cursorThursday.moveToNext())
             {
                 String current = cursorThursday.getString
-                        (cursorThursday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_THURSDAY));
+                        (cursorThursday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TIME));
 
                 thursdayPriority.add(current);
             }
@@ -256,7 +259,7 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             while(cursorFriday.moveToNext())
             {
                 String current = cursorFriday.getString
-                        (cursorFriday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_FRIDAY));
+                        (cursorFriday.getColumnIndexOrThrow(DatabaseContract.DatabaseEntry.COLUMN_TIME));
 
                 fridayPriority.add(current);
             }
@@ -518,31 +521,31 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         //insert time into the correct column
         if(priorityQueue == mondayPriority)
         {
-            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_MONDAY, time);
+            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TIME, time);
             return db.insert(DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME, null, contentValues);
 
         }
         else if(priorityQueue == tuesdayPriority)
         {
-            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TUESDAY, time);
+            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TIME, time);
             return db.insert(DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME, null, contentValues);
 
         }
         else if(priorityQueue == wednesdayPriority)
         {
-            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY, time);
+            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TIME, time);
             return db.insert(DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME, null, contentValues);
 
         }
         else if(priorityQueue == thursdayPriority)
         {
-            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_THURSDAY, time);
+            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TIME, time);
             return db.insert(DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME, null, contentValues);
 
         }
         else
         {
-            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_FRIDAY, time);
+            contentValues.put(DatabaseContract.DatabaseEntry.COLUMN_TIME, time);
             return db.insert(DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME, null, contentValues);
 
         }
@@ -565,10 +568,24 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             //convert time back into the format it is stored in database
             String databaseString = unconvertTime(buttonText);
 
+            //name of table that will be deleted
+            String tableName;
+            //determine which table to delete
             if(Arrays.asList(mondayColumn).contains(button))
-            {
+                tableName = DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME;
+            else if(Arrays.asList(tuesdayColumn).contains(button))
+                tableName = DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME;
+            else if(Arrays.asList((wednesdayColumn)).contains(button))
+                tableName = DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME;
+            else if(Arrays.asList(thursdayColumn).contains(button))
+                tableName = DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME;
+            else
+                tableName = DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME;
 
-            }
+            db.delete(tableName, DatabaseContract.DatabaseEntry.COLUMN_TIME + "=?", new String[] {databaseString});
+            button.setText("");
+
+
         }
     }
 

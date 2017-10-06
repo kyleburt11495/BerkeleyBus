@@ -21,11 +21,8 @@ public class DatabaseContract
         public static final String THURSDAY_TABLE_NAME = "ThursdayTable";
         public static final String FRIDAY_TABLE_NAME = "FridayTable";
 
-        public static final String COLUMN_MONDAY = "monday";
-        public static final String COLUMN_TUESDAY = "tuesday";
-        public static final String COLUMN_WEDNESDAY = "wednesday";
-        public static final String COLUMN_THURSDAY = "thursday";
-        public static final String COLUMN_FRIDAY = "friday";
+        public static final String COLUMN_TIME = "time";
+
 
     }
 }

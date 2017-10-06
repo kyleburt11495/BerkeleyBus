@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "BusDatabase.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public DatabaseHelper(Context context)
     {
@@ -25,27 +25,27 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //sql query to create table
         final String SQL_CREATE_MONDAY_TABLE = "CREATE TABLE " + DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME +
             " (" + DatabaseContract.DatabaseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DatabaseContract.DatabaseEntry.COLUMN_MONDAY + " TEXT NOT NULL" +
+                DatabaseContract.DatabaseEntry.COLUMN_TIME + " TEXT NOT NULL" +
                 ");";
 
         final String SQL_CREATE_TUESDAY_TABLE = "CREATE TABLE " + DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME +
                 " (" + DatabaseContract.DatabaseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DatabaseContract.DatabaseEntry.COLUMN_TUESDAY + " TEXT NOT NULL" +
+                DatabaseContract.DatabaseEntry.COLUMN_TIME + " TEXT NOT NULL" +
                 ");";
 
         final String SQL_CREATE_WEDNESDAY_TABLE = "CREATE TABLE " + DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME +
                 " (" + DatabaseContract.DatabaseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DatabaseContract.DatabaseEntry.COLUMN_WEDNESDAY + " TEXT NOT NULL" +
+                DatabaseContract.DatabaseEntry.COLUMN_TIME + " TEXT NOT NULL" +
                 ");";
 
         final String SQL_CREATE_THURSDAY_TABLE = "CREATE TABLE " + DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME +
                 " (" + DatabaseContract.DatabaseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DatabaseContract.DatabaseEntry.COLUMN_THURSDAY + " TEXT NOT NULL" +
+                DatabaseContract.DatabaseEntry.COLUMN_TIME + " TEXT NOT NULL" +
                 ");";
 
         final String SQL_CREATE_FRIDAY_TABLE = "CREATE TABLE " + DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME +
                 " (" + DatabaseContract.DatabaseEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DatabaseContract.DatabaseEntry.COLUMN_FRIDAY + " TEXT NOT NULL" +
+                DatabaseContract.DatabaseEntry.COLUMN_TIME + " TEXT NOT NULL" +
                 ");";
 
 
