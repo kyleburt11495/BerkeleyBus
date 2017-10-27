@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import java.sql.Time;
+import java.util.Calendar;
+
 public class EnterTime extends AppCompatActivity {
     Spinner daySpinner;
     Button cancelButton;
@@ -42,8 +45,8 @@ public class EnterTime extends AppCompatActivity {
 
         //initialize selectedDay, hourSelected, and minuteSelected
         selectedDay = null;
-        hourSelected = -1;
-        minuteSelected = -1;
+        hourSelected = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        minuteSelected = Calendar.getInstance().get(Calendar.MINUTE);
 
         //set onItemSelectedListener for spinner
         daySpinner.setOnItemSelectedListener(new daySpinnerListener());
@@ -121,10 +124,13 @@ public class EnterTime extends AppCompatActivity {
             hourSelected = hourOfDay;
             minuteSelected = minute;
 
+
             if(hourSelected < 12)
                 amPm = "AM";
             else
                 amPm = "PM";
         }
+
+
     }
 }

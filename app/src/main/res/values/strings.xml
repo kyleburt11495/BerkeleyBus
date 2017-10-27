@@ -163,6 +163,14 @@
     <string name="preference_file_key_thursday">Bus.thursday</string>
     <string name="preference_file_key_friday">Bus.friday</string>
 
+    <!-- string id for notification channel -->
+    <string name="bus_channel_id">bus_channel_id</string>
+    <!-- user visible name for notification channel -->
+    <string name="bus_channel_user_name">Bus Notification Channel</string>
+    <!-- user viewable description of notifcation channel -->
+    <string name="bus_channel_description">Notification Channel for Bus. Notifies user
+        of bus arrival times around user-specified time</string>
+
 
 
 </resources>

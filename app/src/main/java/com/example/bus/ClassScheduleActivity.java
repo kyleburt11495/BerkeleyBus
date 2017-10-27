@@ -1,8 +1,11 @@
 package com.example.bus;
 
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -111,6 +114,30 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         fridayFourthClass = (Button) findViewById(R.id.fridayFourthClass);
 
         mondayFirstClass.setOnClickListener(new timeButtonListener());
+        mondaySecondClass.setOnClickListener(new timeButtonListener());
+        mondayThirdClass.setOnClickListener(new timeButtonListener());
+        mondayFourthClass.setOnClickListener(new timeButtonListener());
+
+        tuesdayFirstClass.setOnClickListener(new timeButtonListener());
+        tuesdaySecondClass.setOnClickListener(new timeButtonListener());
+        tuesdayThirdClass.setOnClickListener(new timeButtonListener());
+        tuesdayFourthClass.setOnClickListener(new timeButtonListener());
+
+        wednesdayFirstClass.setOnClickListener(new timeButtonListener());
+        wednesdaySecondClass.setOnClickListener(new timeButtonListener());
+        wednesdayThirdClass.setOnClickListener(new timeButtonListener());
+        wednesdayFourthClass.setOnClickListener(new timeButtonListener());
+
+        thursdayFirstClass.setOnClickListener(new timeButtonListener());
+        thursdaySecondClass.setOnClickListener(new timeButtonListener());
+        thursdayThirdClass.setOnClickListener(new timeButtonListener());
+        thursdayFourthClass.setOnClickListener(new timeButtonListener());
+
+        fridayFirstClass.setOnClickListener(new timeButtonListener());
+        fridaySecondClass.setOnClickListener(new timeButtonListener());
+        fridayThirdClass.setOnClickListener(new timeButtonListener());
+        fridayFourthClass.setOnClickListener(new timeButtonListener());
+
 
         mondayPriority = new TreeSet<>();
         tuesdayPriority = new TreeSet<>();
@@ -150,8 +177,8 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         fridayColumn[2] = fridayThirdClass;
         fridayColumn[3] = fridayFourthClass;
 
-        //load times from database into priority queues
 
+        //load times from database into priority queues
         new getDatabaseTask().execute();
 
 
@@ -432,6 +459,10 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         //convert hour into correct format
         switch(Integer.valueOf(hour))
         {
+            case 0:
+                hour = "12";
+                amPm = "AM";
+                break;
             case 13:
                 hour = "1";
                 break;
