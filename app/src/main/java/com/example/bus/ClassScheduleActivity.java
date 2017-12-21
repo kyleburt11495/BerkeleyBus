@@ -177,6 +177,17 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         fridayColumn[2] = fridayThirdClass;
         fridayColumn[3] = fridayFourthClass;
 
+        //set all columns to invisible. When new time is added, button will appear with time
+        for(int i = 0; i < mondayColumn.length; i++)
+            mondayColumn[i].setVisibility(View.INVISIBLE);
+        for(int i = 0; i < tuesdayColumn.length; i++)
+            tuesdayColumn[i].setVisibility(View.INVISIBLE);
+        for(int i = 0; i < wednesdayColumn.length; i++)
+            wednesdayColumn[i].setVisibility(View.INVISIBLE);
+        for(int i = 0; i < thursdayColumn.length; i++)
+            thursdayColumn[i].setVisibility(View.INVISIBLE);
+        for(int i = 0; i < fridayColumn.length; i++)
+            fridayColumn[i].setVisibility(View.INVISIBLE);
 
         //load times from database into priority queues
         new getDatabaseTask().execute();
@@ -429,7 +440,9 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
     public void updateColumn(TreeSet<String> priorityQueue, Button[] column)
     {
+        //Iterate through priorityQueue holding times
         Iterator<String> iterator = priorityQueue.iterator();
+        //counter to determine index of button in Button[] that will be initialized with time
         int buttonCounter = 0;
         while(iterator.hasNext())
         {
@@ -440,13 +453,69 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
             Button currentButton = column[buttonCounter];
 
-            Log.d("buttonCounter:", Integer.toString(buttonCounter));
-            Log.d("CurrentTime", currentTime);
+            //Log.d("buttonCounter:", Integer.toString(buttonCounter));
+            //Log.d("CurrentTime", currentTime);
             currentButton.setText(currentTime);
+            currentButton.setVisibility(View.VISIBLE);
             buttonCounter++;
         }
     }
 
+    /**
+     * resets the column layout after a time has been deleted
+     * @param priorityQueue PriorityQueue that sorts and holds the times
+     */
+    public void resetLayout(TreeSet<String> priorityQueue)
+    {
+        //determine which priorityqueue was altered
+        if(priorityQueue == mondayPriority)
+        {
+            //set all buttons in column to nonvisible and no text
+            makeColumnInvisible(mondayColumn);
+            updateColumn(priorityQueue, mondayColumn);
+        }
+        else if(priorityQueue == tuesdayPriority)
+        {
+            makeColumnInvisible(tuesdayColumn);
+            updateColumn(priorityQueue, tuesdayColumn);
+        }
+
+        else if(priorityQueue == wednesdayPriority)
+        {
+            makeColumnInvisible(wednesdayColumn);
+            updateColumn(priorityQueue, wednesdayColumn);
+        }
+        else if(priorityQueue == thursdayPriority)
+        {
+            makeColumnInvisible(thursdayColumn);
+            updateColumn(priorityQueue, thursdayColumn);
+        }
+        else if(priorityQueue == fridayPriority)
+        {
+            makeColumnInvisible(fridayColumn);
+            updateColumn(priorityQueue, fridayColumn);
+        }
+    }
+
+    /**
+     * Reset column of buttons so updateColumns will work
+     * @param column column of buttons that will be reset to no text and non visible
+     */
+    public void makeColumnInvisible(Button[] column)
+    {
+        //loop through column and set each button to 0
+        for(int i = 0; i < column.length; i++)
+        {
+            column[i].setText("");
+            column[i].setVisibility(View.INVISIBLE);
+        }
+    }
+
+    /**
+     * Converts string from database into AM/PM format
+     * @param time
+     * @return
+     */
     public String convertTime(String time)
     {
         //split time into hour and minute
@@ -539,6 +608,10 @@ public class ClassScheduleActivity extends AppCompatActivity  {
         //add amPmInt to hour to unconvert back to 24 hour time
         String hourString = String.valueOf(hourInt+amPmInt);
 
+        //if time is 12:00 AM then hourString must be 0
+        if(hourInt == 12 && amPmInt == 0)
+            hourString = "0";
+
         //concatenate hour with : and mnute and
         return hourString + ":" + minute;
 
@@ -586,6 +659,9 @@ public class ClassScheduleActivity extends AppCompatActivity  {
 
     }
 
+    /**
+     * Deletes time from database and layout
+     */
     public class timeButtonListener implements View.OnClickListener
     {
 
@@ -602,19 +678,47 @@ public class ClassScheduleActivity extends AppCompatActivity  {
             //name of table that will be deleted
             String tableName;
             //determine which table to delete
-            if(Arrays.asList(mondayColumn).contains(button))
-                tableName = DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME;
-            else if(Arrays.asList(tuesdayColumn).contains(button))
-                tableName = DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME;
-            else if(Arrays.asList((wednesdayColumn)).contains(button))
-                tableName = DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME;
-            else if(Arrays.asList(thursdayColumn).contains(button))
-                tableName = DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME;
-            else
-                tableName = DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME;
-
-            db.delete(tableName, DatabaseContract.DatabaseEntry.COLUMN_TIME + "=?", new String[] {databaseString});
             button.setText("");
+            button.setVisibility(View.INVISIBLE);
+
+            if(Arrays.asList(mondayColumn).contains(button))
+            {
+                //get tableName so time can be deleted from dayabase
+                tableName = DatabaseContract.DatabaseEntry.MONDAY_TABLE_NAME;
+                //remove time from priorityQieie
+                mondayPriority.remove(databaseString);
+                //reset the column of buttons that has been modified with times from priotityQueue
+                //resetLayout(mondayPriority);
+            }
+            else if(Arrays.asList(tuesdayColumn).contains(button))
+            {
+                tableName = DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME;
+                tuesdayPriority.remove(databaseString);
+                //resetLayout(tuesdayPriority);
+            }
+            else if(Arrays.asList((wednesdayColumn)).contains(button))
+            {
+                tableName = DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME;
+                wednesdayPriority.remove(databaseString);
+                //resetLayout(wednesdayPriority);
+            }
+            else if(Arrays.asList(thursdayColumn).contains(button))
+            {
+                tableName = DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME;
+                thursdayPriority.remove(databaseString);
+                //resetLayout(thursdayPriority);
+            }
+            else
+            {
+                tableName = DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME;
+                fridayPriority.remove(databaseString);
+                //resetLayout(fridayPriority);
+            }
+            //delete time from the database
+            db.delete(tableName, DatabaseContract.DatabaseEntry.COLUMN_TIME + "=?", new String[] {databaseString});
+           // button.setText("");
+            //button.setVisibility(View.INVISIBLE);
+
 
 
         }
