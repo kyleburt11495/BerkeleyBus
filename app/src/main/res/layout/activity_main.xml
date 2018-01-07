@@ -55,7 +55,7 @@
 
     <TextView
             android:id="@+id/arrivalTimeView"
-            android:text="first"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="50dp"
             android:layout_width="fill_parent"
@@ -67,7 +67,7 @@
             android:id="@+id/secondArrivalTimeView"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="second"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="50dp"
             android:background="@drawable/border"
@@ -77,7 +77,7 @@
             android:id="@+id/thirdArrivalTimeView"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="third"
+            android:text=""
              android:textColor="@color/black"
             android:textSize="50dp"
             android:background="@drawable/border"

@@ -688,31 +688,31 @@ public class ClassScheduleActivity extends AppCompatActivity  {
                 //remove time from priorityQieie
                 mondayPriority.remove(databaseString);
                 //reset the column of buttons that has been modified with times from priotityQueue
-                //resetLayout(mondayPriority);
+                resetLayout(mondayPriority);
             }
             else if(Arrays.asList(tuesdayColumn).contains(button))
             {
                 tableName = DatabaseContract.DatabaseEntry.TUESDAY_TABLE_NAME;
                 tuesdayPriority.remove(databaseString);
-                //resetLayout(tuesdayPriority);
+                resetLayout(tuesdayPriority);
             }
             else if(Arrays.asList((wednesdayColumn)).contains(button))
             {
                 tableName = DatabaseContract.DatabaseEntry.WEDNESDAY_TABLE_NAME;
                 wednesdayPriority.remove(databaseString);
-                //resetLayout(wednesdayPriority);
+                resetLayout(wednesdayPriority);
             }
             else if(Arrays.asList(thursdayColumn).contains(button))
             {
                 tableName = DatabaseContract.DatabaseEntry.THURSDAY_TABLE_NAME;
                 thursdayPriority.remove(databaseString);
-                //resetLayout(thursdayPriority);
+                resetLayout(thursdayPriority);
             }
             else
             {
                 tableName = DatabaseContract.DatabaseEntry.FRIDAY_TABLE_NAME;
                 fridayPriority.remove(databaseString);
-                //resetLayout(fridayPriority);
+                resetLayout(fridayPriority);
             }
             //delete time from the database
             db.delete(tableName, DatabaseContract.DatabaseEntry.COLUMN_TIME + "=?", new String[] {databaseString});
